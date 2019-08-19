@@ -7,14 +7,14 @@ pipeline {
     stage('Say Hello') {
       steps {
         echo 'Hello World!'   
-        sh 'node --version'
+        sh 'nodejs --version'
       }
     }
     stage('Test') {
       steps {
         container('nodejs') {
           echo 'Hello World!'   
-          sh 'node --version'
+          sh 'nodejs --version'
         }
       }
     }
