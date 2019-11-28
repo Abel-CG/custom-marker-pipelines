@@ -17,6 +17,7 @@ pipeline {
            def d = [npmPackages: 'express pug']
            //def props = readProperties defaults: d, file: '.nodejs-app'
            def props = readProperties file:'.nodejs-app'
+           sleep(30000)
            echo props['npmPackages']
            env.npmPackages = props['npmPackages']
         }
