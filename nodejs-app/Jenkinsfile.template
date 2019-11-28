@@ -15,12 +15,12 @@ pipeline {
       agent { 
          kubernetes {
               label 'nodejs-app-local'
-              yamlFile nodePodYaml
+              yaml nodePodYaml
            }
          }
       steps {
 
-       
+        
         container('nodejs') {
           echo 'Hello World!'
           sh """
