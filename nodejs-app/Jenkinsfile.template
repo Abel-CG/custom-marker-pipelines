@@ -1,4 +1,5 @@
 library 'load-properties'
+def nodePodYaml = libraryResource 'podtemplates/nodejs-app/node-pod.yml'
 pipeline {
   agent none
   options { 
@@ -11,7 +12,10 @@ pipeline {
   }
   stages {
     stage('Test') {
-      agent { label 'nodejs-app'}
+      agent { 
+         label 'nodejs-app-local'
+         yamlFile nodePodYaml
+         }
       steps {
 
         defineProps('.nodejs-app', [npmPackages: 'express bla'])
