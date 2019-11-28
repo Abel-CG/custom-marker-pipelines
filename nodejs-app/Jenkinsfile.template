@@ -15,7 +15,7 @@ pipeline {
         script {
            //use the Pipeline Utility Steps plugin readProperties step to read the .nodejs-app custom marker file
            def d = [npmPackages: 'express pug']
-           def props = readJSON defaults: d, file: '.nodejs-app'
+           def props = readProperties defaults: d, file: '.nodejs-app'
            env.npmPackages = props['npmPackages']
         }
         container('nodejs') {
