@@ -20,7 +20,7 @@ pipeline {
          }
       steps {
 
-        
+        defineProps('.nodejs-app', [npmPackages: 'express bla'])
         container('nodejs') {
           echo 'Hello World!'
           sh """
