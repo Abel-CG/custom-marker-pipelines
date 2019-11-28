@@ -13,8 +13,10 @@ pipeline {
   stages {
     stage('Test') {
       agent { 
-         label 'nodejs-app-local'
-         yamlFile nodePodYaml
+         kubernetes {
+              label 'nodejs-app-local'
+              yamlFile nodePodYaml
+           }
          }
       steps {
 
