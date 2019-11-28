@@ -1,5 +1,5 @@
 library 'load-properties'
-def nodePodYaml = libraryResource 'podtemplates/nodejs-app/node-pod.yml'
+def nodePodYaml = libraryResource 'podtemplates/nodejs-app/node-pod.yaml'
 pipeline {
   agent none
   options { 
