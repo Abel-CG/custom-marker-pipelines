@@ -12,9 +12,17 @@ pipeline {
     stage('Test') {
       agent { label 'nodejs-app'}
       steps {
+        script {
+           //use the Pipeline Utility Steps plugin readProperties step to read the .nodejs-app custom marker file 
+           def props = readProperties file: '.nodejs-app'
+           env.npmPackages = props['npmPackages']
+        }
         container('nodejs') {
-          echo 'Hello World!'   
-          sh 'node --version'
+          echo 'Hello World!'
+          sh """
+              npm i -S ${npmPackages}
+              node --version
+           """
         }
       }
     }
